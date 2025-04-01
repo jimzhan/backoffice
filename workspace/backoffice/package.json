@@ -1,0 +1,36 @@
+{
+  "name": "backoffice",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Jim Zhan <jim.zhan@me.com>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@hapi/glue": "^9.0.1",
+    "@hapi/hapi": "^21.4.0",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/log": "^2.0.1",
+    "@hapi/vision": "^7.0.3",
+    "@hapi/yar": "^11.0.3",
+    "ava": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "exiting": "^7.0.0",
+    "hapi-swagger": "^17.3.2",
+    "i18next": "^24.2.3",
+    "i18next-fs-backend": "^2.6.0",
+    "i18next-http-middleware": "^3.7.1",
+    "nanoid": "^5.1.5",
+    "nodemon": "^3.1.9",
+    "settings": "*",
+    "url-join": "^5.0.0"
+  },
+  "scripts": {
+    "infra:up": "docker-compose --file infra/docker-compose.yml up -d",
+    "infra:stop": "docker-compose --file infra/docker-compose.yml stop",
+    "lint": "eslint --fix --ignore-path .eslintignore",
+    "start": "cross-env NODE_ENV=production node --no-experimental-require-module ./src/index.js",
+    "watch": "cross-env NODE_ENV=development nodemon  ./src/index.js",
+    "test": "c8 ava"
+  }
+}
